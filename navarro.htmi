@@ -1,0 +1,7 @@
+<nav style="background: #222; padding: 10px; text-align: center;">
+  <a href="index.html" style="color: white; margin: 10px; text-decoration: none;">Home</a>
+  <a href="signup.html" style="color: white; margin: 10px; text-decoration: none;">Sign Up</a>
+  <a href="videos.html" style="color: white; margin: 10px; text-decoration: none;">Videos</a>
+  <a href="chat.html" style="color: white; margin: 10px; text-decoration: none;">Chat</a>
+  <a href="studio.html" style="color: white; margin: 10px; text-decoration: none;">Studio</a>
+</nav>
