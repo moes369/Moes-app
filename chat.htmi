@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moes Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1e1e2f;
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+    .chat-box {
+      max-width: 500px;
+      margin: auto;
+      background: #333;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .message {
+      text-align: left;
+      margin-bottom: 10px;
+      background: #444;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chat with Friends</h1>
+  <div class="chat-box">
+    <div class="message">Friend: Hey there!</div>
+    <div class="message">You: Hello! How’s it going?</div>
+    <!-- Add more messages here -->
+  </div>
+</body>
+</html>
