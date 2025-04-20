@@ -1,58 +1,50 @@
-<nav style="background: #222; padding: 10px; text-align: center;">
-  <a href="index.html" style="color: white; margin: 10px; text-decoration: none;">Home</a>
-  <a href="signup.html" style="color: white; margin: 10px; text-decoration: none;">Sign Up</a>
-  <a href="videos.html" style="color: white; margin: 10px; text-decoration: none;">Videos</a>
-  <a href="chat.html" style="color: white; margin: 10px; text-decoration: none;">Chat</a>
-  <a href="studio.html" style="color: white; margin: 10px; text-decoration: none;">Studio</a>
-</nav><!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up - Moes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moes | Social for Everyone</title>
   <style>
     body {
-      background: linear-gradient(to right, #6a0dad, #32cd32);
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #6a0dad, #32cd32);
       color: white;
-    }
-    .signup-container {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 30px;
-      border-radius: 10px;
-      width: 300px;
       text-align: center;
+      padding: 40px;
     }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
     }
-    button {
-      padding: 10px 20px;
-      border: none;
-      background: #fff;
+    p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: white;
       color: #6a0dad;
-      font-weight: bold;
-      border-radius: 5px;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background-color: #f1f1f1;
     }
   </style>
 </head>
 <body>
-  <div class="signup-container">
-    <h2>Join Moes</h2>
-    <input type="text" placeholder="Full Name" />
-    <input type="email" placeholder="Email" />
-    <input type="password" placeholder="Password" />
-    <button>Sign Up</button>
-  </div>
+  <h1>Welcome to Moes</h1>
+  <p>Connect. Create. Chat. A new way to share your voice.</p>
+  <a href="#" class="button">Join Now</a>
+  <a href="#" class="button">Watch Videos</a>
+  <a href="#" class="button">Chat with Friends</a>
 </body>
 </html>
