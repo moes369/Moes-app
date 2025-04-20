@@ -1,10 +1,4 @@
-<a href="login.html" style="color: white; margin: 10px; text-decoration: none;">Login</a><nav style="background: #222; padding: 10px; text-align: center;">
-  <a href="index.html" style="color: white; margin: 10px; text-decoration: none;">Home</a>
-  <a href="signup.html" style="color: white; margin: 10px; text-decoration: none;">Sign Up</a>
-  <a href="videos.html" style="color: white; margin: 10px; text-decoration: none;">Videos</a>
-  <a href="chat.html" style="color: white; margin: 10px; text-decoration: none;">Chat</a>
-  <a href="studio.html" style="color: white; margin: 10px; text-decoration: none;">Studio</a>
-</nav><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -12,24 +6,47 @@
   <title>Moes | Studio</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #8e44ad, #3498db);
+      background: linear-gradient(to right, #6a0dad, #32cd32);
       color: white;
+      margin: 0;
+      padding: 40px 20px;
       text-align: center;
-      padding: 50px;
     }
     h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
+      font-size: 36px;
     }
-    p {
-      font-size: 20px;
+    input[type="file"] {
+      margin: 20px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+    }
+    video {
+      margin-top: 20px;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to the Studio</h1>
-  <p>This is where you can record or upload content to share on Moes.</p>
+  <h1>Upload Your Video</h1>
+  <input type="file" accept="video/*" onchange="previewVideo(event)" />
+  <video id="preview" controls></video>
+
+  <script>
+    function previewVideo(event) {
+      const file = event.target.files[0];
+      const video = document.getElementById("preview");
+
+      if (file) {
+        const url = URL.createObjectURL(file);
+        video.src = url;
+        video.style.display = "block";
+      }
+    }
+  </script>
 </body>
 </html>
