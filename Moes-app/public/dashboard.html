@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard | Moes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #32cd32, #6a0dad);
+      color: white;
+    }
+
+    .dashboard {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .card p {
+      font-size: 16px;
+    }
+
+    .logout {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .logout button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: crimson;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .logout button:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dashboard">
+    <h1>Welcome, <span id="userName">User</span></h1>
+    <div class="grid">
+      <div class="card">
+        <h2>Profile</h2>
+        <p>Name: <span id="profileName">User</span></p>
+        <p>Email: <span id="profileEmail">user@example.com</span></p>
+      </div>
+
+      <div class="card">
+        <h2>My Stats</h2>
+        <p>Videos Uploaded: 3</p>
+        <p>Views: 1254</p>
+      </div>
+
+      <div class="card">
+        <h2>Latest Videos</h2>
+        <p>- My First Video</p>
+        <p>- Reaction Clip</p>
+        <p>- Moes Studio Intro</p>
+      </div>
+
+      <div class="card">
+        <h2>Messages</h2>
+        <p>You have 2 new messages.</p>
+      </div>
+    </div>
+
+    <div class="logout">
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyA3R13yNSaAFIGsdSVSuQ5L9ezfhAWsCo4",
+      authDomain: "moes-web-644bc.firebaseapp.com",
+      projectId: "moes-web-644bc",
+      storageBucket: "moes-web-644bc.firebasestorage.app",
+      messagingSenderId: "620446911018",
+      appId: "1:620446911018:web:fae98274b922d69e575153",
+      measurementId: "G-HHQ9LC5J3R"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        document.getElementById("userName").textContent = user.displayName || "User";
+        document.getElementById("profileName").textContent = user.displayName || "User";
+        document.getElementById("profileEmail").textContent = user.email;
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+
+    function logout() {
+      auth.signOut().then(() => {
+        window.location.href = "login.html";
+      });
+    }
+  </script>
+</body>
+
+</html>
