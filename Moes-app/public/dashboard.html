@@ -260,3 +260,32 @@
 <div style="text-align: center; margin-top: 20px;">
   <img id="profile-pic" src="https://via.placeholder.com/120" alt="Profile Picture" style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid white;" />
 </div>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyA3R13yNSaAFIGsdSVSuQ5L9ezfhAWsCo4",
+    authDomain: "moes-web-644bc.firebaseapp.com",
+    projectId: "moes-web-644bc",
+    storageBucket: "moes-web-644bc.appspot.com",
+    messagingSenderId: "620446911018",
+    appId: "1:620446911018:web:fae98274b922d69e575153",
+    measurementId: "G-HHQ9LC5J3R"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      document.getElementById('user-name').textContent = user.displayName || "No name set";
+      document.getElementById('user-email').textContent = user.email;
+
+      const profilePic = document.getElementById('profile-pic');
+      if (user.photoURL) {
+        profilePic.src = user.photoURL;
+      } else {
+        profilePic.src = "https://via.placeholder.com/120";
+      }
+    } else {
+      window.location.href = "login.html";
+    }
+  });
+</script>
