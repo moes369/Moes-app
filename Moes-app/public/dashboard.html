@@ -209,3 +209,40 @@
   </footer>
 </body>
 </html>
+<body>
+  <h1>Welcome to Your Dashboard</h1>
+  
+  <div id="user-info" style="background:#fff;padding:20px;border-radius:8px;margin-top:20px;color:#000;">
+    <h3>User Information</h3>
+    <p><strong>Name:</strong> <span id="user-name">Loading...</span></p>
+    <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+  <script>
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyA3R13yNSaAFIGsdSVSuQ5L9ezfhAWsCo4",
+      authDomain: "moes-web-644bc.firebaseapp.com",
+      projectId: "moes-web-644bc",
+      storageBucket: "moes-web-644bc.appspot.com",
+      messagingSenderId: "620446911018",
+      appId: "1:620446911018:web:fae98274b922d69e575153",
+      measurementId: "G-HHQ9LC5J3R"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        document.getElementById('user-name').textContent = user.displayName || "No name set";
+        document.getElementById('user-email').textContent = user.email;
+      } else {
+        window.location.href = "login.html"; // redirect if not logged in
+      }
+    });
+  </script>
+</body>
